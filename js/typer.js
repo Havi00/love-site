@@ -1,12 +1,15 @@
-const sentence = "I love you Darshanaa. ";
+const sentence = "I love you.";
 const box = document.getElementById("typebox");
 let i = 0;
 
 function type() {
   box.textContent += sentence.charAt(i);
-  i = (i + 1) % sentence.length;
-  // after each full sentence, add a small pause
-  if (i === 0) setTimeout(type, 600);
-  else setTimeout(type, 80);  // typing speed (ms)
+  i++;
+
+  if (i === sentence.length) {      // sentence done
+    box.textContent += "\n";        // new line
+    i = 0;                          // restart index
+  }
+  setTimeout(type, 70);             // steady speed
 }
 type();

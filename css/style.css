@@ -11,7 +11,7 @@
 /* ---------- GLOBAL RESET ---------- */
 *{ box-sizing:border-box; margin:0; padding:0; }
 
-/* ---------- BACKGROUND IMAGE + SOFT OVERLAY ---------- */
+/* ---------- BACKGROUND IMAGE ---------- */
 body{
   font-family:Poppins,sans-serif;
   min-height:100vh;
@@ -22,29 +22,32 @@ body{
   overflow-x:hidden;
   position:relative;
 }
-/* translucent gradient overlay so text is readable */
+
+/* ---------- LIGHTER GRADIENT OVERLAY (behind everything) ---------- */
 body::after{
   content:"";
   position:fixed; inset:0;
   background:linear-gradient(135deg,var(--rose) 0%, var(--lav) 100%);
-  opacity:0.25; pointer-events:none;
+  opacity:0.12;                 /* was 0.25 – clearer */
+  pointer-events:none;
+  z-index:-2;                   /* sits behind content */
 }
 
-/* ---------- FLOATING HEART PATTERN (tiny love hearts) ---------- */
+/* ---------- FLOATING HEART PATTERN (smaller, subtler, behind) ---------- */
 body::before{
   content:"";
   position:fixed; inset:0;
   background:url('../images/hearts.png') repeat;
-  opacity:0.06;
+  background-size:80px 80px;    /* smaller hearts */
+  opacity:0.04;                 /* lighter */
   animation:scroll 60s linear infinite;
   pointer-events:none;
+  z-index:-3;                   /* even further back */
 }
 @keyframes scroll{
-  0%   { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
+  0%   { background-position:0 0; }
+  100% { background-position:1000px 1000px; }
 }
-
-@keyframes scroll{0%{background-position:0 0;}100%{background-position:1000px 1000px;}}
 
 /* ---------- TYPOGRAPHY ---------- */
 h1{ font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:0.25rem; }
@@ -67,7 +70,7 @@ h1{ font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:0.25rem; }
   position:fixed; inset:0; z-index:2000;
   background:linear-gradient(135deg,var(--rose),var(--peach),var(--lav));
   display:flex; align-items:center; justify-content:center;
-  animation:fadeOut 2.8s forwards ease 2s;   /* 2 s wait, 0.8 s fade */
+  animation:fadeOut 2.8s forwards ease 2s;
 }
 .big-heart{
   font-size:5rem;
@@ -77,7 +80,7 @@ h1{ font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:0.25rem; }
 @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* ---------- SECTIONS ---------- */
-section{padding:2rem 1rem; max-width:900px; width:100%;}
+section{padding:2rem 1rem; max-width:900px; width:100%; position:relative; z-index:1;}
 
 /* ---------- LETTER PAGE ---------- */
 .letter-wrap{
@@ -92,6 +95,8 @@ section{padding:2rem 1rem; max-width:900px; width:100%;}
   border-radius:12px;
   box-shadow:0 8px 25px rgba(0,0,0,0.25);
   font-family:'Poppins',sans-serif;
+  overflow:auto;               /* scrolls inside card on mobile */
+  max-height:80vh;
 }
 .letter h2{
   font-family:'Great Vibes',cursive; font-size:2.2rem; margin-bottom:0.3rem;
@@ -102,4 +107,3 @@ section{padding:2rem 1rem; max-width:900px; width:100%;}
   font-family:'Great Vibes',cursive;
   font-size:1.8rem; line-height:2.3rem; white-space:pre-wrap;
 }
-
