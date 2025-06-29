@@ -56,7 +56,7 @@ h1{ font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:0.25rem; }
 /* ---------- BUTTONS ---------- */
 .btn{
   display:inline-block;
-  background:#eedbdb; color:var(--rose);
+  background:#f1d8d8; color:var(--rose);
   border:none; border-radius:50px;
   padding:1rem 2rem; margin:0.5rem;
   font-size:1.05rem; font-weight:600;
