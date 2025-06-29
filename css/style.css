@@ -1,0 +1,100 @@
+/* ---------- FONTS ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+/* ---------- ROOT COLOURS ---------- */
+:root{
+  --rose:#ff9aa2;
+  --peach:#ffb7b2;
+  --lav:#c7ceea;
+}
+
+/* ---------- GLOBAL RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+/* ---------- BACKGROUND IMAGE + SOFT OVERLAY ---------- */
+body{
+  font-family:Poppins,sans-serif;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  background:url('../images/background.jpg') center/cover fixed;
+  color:#fff;
+  text-align:center;
+  overflow-x:hidden;
+  position:relative;
+}
+/* translucent gradient overlay so text is readable */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background:linear-gradient(135deg,var(--rose) 0%, var(--lav) 100%);
+  opacity:0.25; pointer-events:none;
+}
+
+/* ---------- FLOATING HEART PATTERN (mega‑light) ---------- */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:url('https://i.imgur.com/Md2QC9Z.png') repeat;
+  opacity:0.05;
+  animation:scroll 60s linear infinite;
+  pointer-events:none;
+}
+@keyframes scroll{0%{background-position:0 0;}100%{background-position:1000px 1000px;}}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1{ font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:0.25rem; }
+.subtitle{ font-size:1.1rem; margin-bottom:1.75rem; }
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-block;
+  background:#fff; color:var(--rose);
+  border:none; border-radius:50px;
+  padding:1rem 2rem; margin:0.5rem;
+  font-size:1.05rem; font-weight:600;
+  cursor:pointer; text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.btn:hover{ transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+
+/* ---------- INTRO SPLASH ---------- */
+#intro{
+  position:fixed; inset:0; z-index:2000;
+  background:linear-gradient(135deg,var(--rose),var(--peach),var(--lav));
+  display:flex; align-items:center; justify-content:center;
+  animation:fadeOut 2.8s forwards ease 2s;   /* 2 s wait, 0.8 s fade */
+}
+.big-heart{
+  font-size:5rem;
+  animation:pulse 1s infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+
+/* ---------- SECTIONS ---------- */
+section{padding:2rem 1rem; max-width:900px; width:100%;}
+
+/* ---------- LETTER PAGE ---------- */
+.letter-wrap{
+  width:100%; min-height:100vh;
+  display:flex; justify-content:center; align-items:center;
+  padding:2rem 1rem;
+}
+.letter{
+  background:#fff; color:var(--rose);
+  max-width:600px; width:100%;
+  padding:2rem 2.5rem;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
+  font-family:'Poppins',sans-serif;
+}
+.letter h2{
+  font-family:'Great Vibes',cursive; font-size:2.2rem; margin-bottom:0.3rem;
+  color:var(--rose);
+}
+.letter .note{font-size:0.95rem; margin-bottom:1.25rem; color:#555;}
+#typebox{
+  font-family:'Great Vibes',cursive;
+  font-size:1.8rem; line-height:2.3rem; white-space:pre-wrap;
+}
+
