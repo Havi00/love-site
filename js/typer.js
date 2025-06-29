@@ -1,4 +1,4 @@
-const sentence = "I love you Darshanaa.";
+const sentence = "I love you Darsh.";
 const box = document.getElementById("typebox");
 let i = 0;
 
