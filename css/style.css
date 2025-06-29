@@ -107,3 +107,6 @@ section{padding:2rem 1rem; max-width:900px; width:100%; position:relative; z-ind
   font-family:'Great Vibes',cursive;
   font-size:1.8rem; line-height:2.3rem; white-space:pre-wrap;
 }
+/* hide native audio bar */
+audio { display:none; }
+

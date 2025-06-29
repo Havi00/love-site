@@ -10,26 +10,20 @@
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
 
-  <!-- 📲 PWA additions -->
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="images/icon-192.png" />
   <meta name="theme-color" content="#ff9aa2" />
-
   <script>
-    /* Register service‑worker so the site becomes installable/offline */
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/love-site/sw.js')
-        .then(reg => console.log('✅ Service‑worker registered:', reg.scope))
-        .catch(err => console.log('❌ SW registration error:', err));
+      navigator.serviceWorker.register('/love-site/sw.js');
     }
   </script>
 </head>
 
 <body>
   <!-- ♥ little splash that fades away -->
-  <div id="intro">
-    <span class="big-heart">❤️</span>
-  </div>
+  <div id="intro"><span class="big-heart">❤️</span></div>
 
   <!-- main page -->
   <h1>Hi, Darshanaa 💖</h1>
@@ -40,5 +34,8 @@
     <a class="btn" href="message.html">💌 Message for You</a>
     <a class="btn" href="photos.html">📸 Just for You</a>
   </div>
+
+  <!-- 🔊 background love song -->
+  <audio id="bgm" src="audio/love.mp3" autoplay loop></audio>
 </body>
 </html>
