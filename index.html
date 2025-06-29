@@ -35,7 +35,18 @@
     <a class="btn" href="photos.html">📸 Just for You</a>
   </div>
 
-  <!-- 🔊 background love song -->
-  <audio id="bgm" src="audio/love.mp3" autoplay loop></audio>
+  <!-- 🔊 background love song — start muted so autoplay is allowed -->
+  <audio id="bgm" src="audio/love.mp3" autoplay loop muted></audio>
+
+  <!-- Un‑mute on first user gesture -->
+  <script>
+    const bgm = document.getElementById('bgm');
+    function unmute() {
+      bgm.muted = false;
+      bgm.play().catch(()=>{});   // just in case
+      document.removeEventListener('pointerdown', unmute);
+    }
+    document.addEventListener('pointerdown', unmute);
+  </script>
 </body>
 </html>
