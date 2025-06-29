@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>For My Love</title>
+
+  <!-- Styles & main JS -->
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
+
+  <!-- 📲 PWA additions -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="images/icon-192.png" />
+  <meta name="theme-color" content="#ff9aa2" />
+
+  <script>
+    /* Register service‑worker so the site becomes installable/offline */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/love-site/sw.js')
+        .then(reg => console.log('✅ Service‑worker registered:', reg.scope))
+        .catch(err => console.log('❌ SW registration error:', err));
+    }
+  </script>
 </head>
+
 <body>
   <!-- ♥ little splash that fades away -->
   <div id="intro">
