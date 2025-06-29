@@ -30,15 +30,20 @@ body::after{
   opacity:0.25; pointer-events:none;
 }
 
-/* ---------- FLOATING HEART PATTERN (mega‑light) ---------- */
+/* ---------- FLOATING HEART PATTERN (tiny love hearts) ---------- */
 body::before{
   content:"";
   position:fixed; inset:0;
-  background:url('https://i.imgur.com/Md2QC9Z.png') repeat;
-  opacity:0.05;
+  background:url('../images/hearts.png') repeat;
+  opacity:0.06;
   animation:scroll 60s linear infinite;
   pointer-events:none;
 }
+@keyframes scroll{
+  0%   { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
 @keyframes scroll{0%{background-position:0 0;}100%{background-position:1000px 1000px;}}
 
 /* ---------- TYPOGRAPHY ---------- */
